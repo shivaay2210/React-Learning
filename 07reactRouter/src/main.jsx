@@ -10,6 +10,11 @@ import Contact from './components/Contact/Contact.jsx'
 import User from './components/User/User.jsx'
 import Github, { githubInfoLoader } from './components/Github/Github.jsx'
 
+// React applications typically use client-side routing to navigate 
+// between different views or pages within the application without reloading 
+// the entire page. Libraries like React Router provide a declarative way
+//  to manage routing in React applications.
+
 // the reason we are using react router dom is that if we have multiple pages
 // then on if we link all that pages using anchor tag then page reloads on every click
 // but this is not a good practice so react router dom gives us Link 
