@@ -1,0 +1,31 @@
+import { createSlice, nanoid } from "@reduxjs/toolkit";
+
+const initialState = {
+    todos: [{id: 1, text: "hello world"}]
+}
+
+// context api mai sirf function kaa structure define karte the definition app.jsx mai kar rhe the
+// rtk mai saara kaam yhi karna hota h
+
+export const todoSlice = createSlice({
+    name: "todo",
+    initialState,
+    reducers: {
+        addTodo: (state, action) => {
+            const todo = {
+                id: nanoid(), 
+                // text: action.payload.text
+                text: action.payload
+            }
+            state.todos.push(todo)
+        },
+        
+        removeTodo: (state, action) => {
+            state.todos = state.todos.filter((todo) => todo.id !== action.payload)
+        }
+    }
+})
+
+export const {addTodo, removeTodo} = todoSlice.actions
+
+export const todoReducer = todoSlice.reducer
