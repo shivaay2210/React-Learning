@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-catch */
 import conf from "../conf/conf";
 import { Client, Account, ID } from "appwrite";
 
@@ -57,8 +58,6 @@ export class AuthService {
 const authService = new AuthService()
 
 export default authService
-
-authService.client
 
 // under the hood authentication kaise ho rhi h woh bss iss file ko pata h
 // toh kbhi in future backend service change hoti h toh changes bss iss file mai honge
