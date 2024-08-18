@@ -10,6 +10,8 @@ function App() {
   // useCallback is used for memoization 
   // it prevents re rendering of code again and again
   // ye function ko sirf run karne ke liye nhi mainly memoization ke liye h cache mai rkhta h
+
+  // ye callback h ki jinpe aapki dependency h and possible run hoga toh uss method ko memoize karlo  
   const passWordGenerator = useCallback(() => {
     let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     let pass = "";
@@ -21,7 +23,8 @@ function App() {
     }
     setPassword(pass);
   }, [length, numberAllowed, charAllowed, setPassword])
-  // ye callback h ki jinpe aapki dependency h and possible run hoga toh uss method ko memoize karlo  
+  // By including setPassword as a dependency, you ensure that the callback always uses the most up-to-date
+  // reference of setPassword. This prevents potential issues with closures where an outdated version of setPassword might be used.
 
   useEffect(passWordGenerator, [length, numberAllowed, charAllowed, passWordGenerator]);
   // ye sbse phle at the time of page reload ye run hota h sbse phle
